@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{meta_title}}">
+    <meta name="twitter:description" content="{{meta_description}}">
+    <meta name="twitter:site" content="http://mark-read.info"> <!-- Change this to your URL -->
+<meta name="twitter:creator" content="@MarkReadM"> <!-- Change this to your Twitter Handel -->
+    <meta name="google-site-verification" content="">
+    <meta property="fb:admins" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{meta_title}}">
+    <meta property="og:description" content="{{meta_description}}">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{{asset "ico/apple-icon-57x57.png"}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{asset "ico/apple-icon-60x60.png"}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{asset "ico/apple-icon-72x72.png"}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset "ico/apple-icon-76x76.png"}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{asset "ico/apple-icon-114x114.png"}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{asset "ico/apple-icon-120x120.png"}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{asset "ico/apple-icon-144x144.png"}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset "ico/apple-icon-152x152.png"}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset "ico/apple-icon-180x180.png"}}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{asset "ico/android-icon-192x192.png"}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset "ico/favicon-32x32.png"}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{asset "ico/favicon-96x96.png"}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset "ico/favicon-16x16.png"}}">
+    <link rel="manifest" href="{{asset "ico/manifest.json"}}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{asset "ico/ms-icon-144x144.png"}}">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="stylesheet" href="{{asset "js/styles/obsidian.css"}}">
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    {{! Styles'n'Scripts }}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{asset "css/main.css"}}" />
+    <link rel="stylesheet" type="text/css" media="print" href="{{asset "css/print.css"}}" />
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+
+    <div id="topbar">
+      <a href="{{@blog.url}}" id="logo"><img src="{{@blog.logo}}" /></a>
+      <div class="nav">
+        <a href="/features">Features</a>
+        <a href="/pricing">Pricing</a>
+        <a href="http://docs.astronomer.io">Docs</a>
+        <a href="mailto:hey@astronomer.io">Support</a>
+      </div>
+      <a href="https://app.astronomer.io" id="log-in">Log in</a>
+      <a href="https://app.astronomer.io/signup" id="sign-up">Sign Up Free</a>
+    </div>
+    {{! Everything else gets inserted here }}
+    {{{body}}}
+
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+    <script src="{{asset "js/readingTime.min.js"}}"></script>
+    <script src="{{asset "js/highlight.pack.js"}}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{{!< default}}
+
+{{#author}}
+  <div class="teaserimage">
+      <div class="teaserimage-image" style="background-image: url({{cover}})">
+        <div style="width: 50%;margin: 0 25%;padding-top:200px;color: #FFF;text-align: center;">
+          <div class="author-image" style="background-image: url({{image}});background-size:cover;
+          border-radius: 100%;
+          width:120px;height:120px;margin: 0 auto;"></div>
+
+          <h1 class="blog-title">{{name}}</h1>
+          <h2 class="blog-description">{{bio}}</h2>
+        </div>
+      </div>
+  </div>
+{{/author}}
+
+<main class="content tag-list" role="main">
+
+    {{#foreach posts}}
+
+      <article class="{{post_class}}">
+          <header class="post-header">
+              <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+              <span class="post-meta">
+                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+              </span>
+          </header>
+          <section class="post-excerpt">
+              <p>{{excerpt}}&hellip;</p>
+          </section>
+      </article>
+
+    {{/foreach}}
+
+    <h5 class="index-headline bottom"><span>{{pagination}}</span></h5>
+</main>

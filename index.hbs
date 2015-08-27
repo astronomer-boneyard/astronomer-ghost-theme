@@ -1,0 +1,135 @@
+
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! The big featured header on the homepage, with the site logo and description }}
+
+
+<div class="teaserimage">
+    <div class="teaserimage-image" {{#if @blog.cover}}style="background-image: url(http://dfsm9194vna0o.cloudfront.net/836026-0-1113051348159976532162413235311.jpg)"{{/if}}>
+      <header class="blog-header">
+          <h1 class="blog-title">It's time to own your customer data.</h1>
+          <div class="features-panel-container">
+            <div class="features-panel">
+              <div>
+                <img src="/assets/img/icon-storage.png">
+                <p>
+                  We help you collect all your customer data into a central repository <b>that you control</b>.
+                </p>
+              </div>
+              <div>
+                <img src="/assets/img/icon-broadcast.png">
+                <p>
+                  We help you discover and setup the best tools
+                  to maximize impact, while minimizing cost.
+                </p>
+              </div>
+              <div>
+                <img src="/assets/img/icon-grow.png">
+                <p>
+                  We help you understand your
+                  numbers and develop a plan to improve them.
+                </p>
+              </div>
+            </div>
+          </div>
+      </header>
+    </div>
+</div>
+
+
+{{! The main content area on the homepage }}
+<main class="content" role="main">
+
+    <div class="features-panel-container" style="border: 1px solid #999;padding: 10px 20px;">
+      <div class="features-panel" style="display: block;">
+        <div style="color: #333;display: block;">
+          <a style="text-decoration: none; color: #333;" href="/meteor">
+            <p style="font-size:240%;margin:0;">
+              <img src="/assets/img/logo-on-light.png" style="width:200px;margin-bottom:-4px;" />
+              ♡
+              <img src="/assets/img/meteor.png" style="width:200px;" />
+            </p>
+            <p style="font-size:120%;">
+              Launching a Meteor app and need to get user analytics setup?<br/><br/>
+              <div style="display: inline;   color:#fff;
+                padding: 10px 20px;
+                background: #677E8B;
+                border-radius:3px;">
+                Learn more  about our Meteor integration
+              </div>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container featured">
+        {{#foreach posts}}
+            {{#if featured}}
+                <article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+                    <div class="article-item">
+                        <header class="post-header">
+                            <h2 class="post-title" itemprop="name"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
+                        </header>
+                        <section class="post-excerpt" itemprop="description">
+                            <p>{{excerpt characters="130"}}&hellip;</p>
+                        </section>
+                        <div class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> <span class="post-tags-set">{{#foreach tags}}<span class="post-tag-{{slug}}"><a href="/tag/{{slug}}">{{name}}</a> </span>{{/foreach}}</span></div>
+                    </div>
+                </article>
+            {{/if}}
+        {{/foreach}}
+    </div>
+
+    <div class="cf frame">
+    {{#foreach posts}}
+        {{#if featured}}
+        {{else}}
+            <article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+                <div class="article-item">
+                    <header class="post-header">
+                        <h2 class="post-title" itemprop="name"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
+                    </header>
+                    <section class="post-excerpt" itemprop="description">
+                        <p>{{excerpt characters="130"}}&hellip;</p>
+                    </section>
+                    <div class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> <span class="post-tags-set">{{#foreach tags}}<span class="post-tag-{{slug}}"><a href="/tag/{{slug}}">{{name}}</a> </span>{{/foreach}}</span></div>
+                </div>
+            </article>
+        {{/if}}
+    {{/foreach}}
+    </div>
+
+
+    {{!! After all the posts, we have the previous/next pagination links }}
+    {{pagination}}
+
+</main>
+
+<footer class="site-footer">
+    <div class="inner">
+      <a href="/features">Features</a> /
+      <a href="/pricing">Pricing</a> /
+      <a href="http://docs.astronomer.io">Documentation</a> /
+      <a href="mailto:hey@astronomer.io">Support</a>
+    </div>
+    <div class="inner" style="margin-top: 15px;">
+           <a href="{{@blog.url}}/rss/">RSS</a> /
+           <a href="https://angel.co/astronomer">AngelList</a> /
+           <a href="https://www.crunchbase.com/organization/astronomer">CrunchBase</a> /
+           <a href="https://www.facebook.com/astronomerio">Facebook</a> /
+           <a href="https://www.linkedin.com/company/astronomer">LinkedIn</a> /
+           <a href="https://twitter.com/astronomerio">Twitter</a>
+         </section>
+    </div>
+    <div class="inner" style="margin-top: 15px;">
+         <section class="copyright">
+           ©{{date format="YYYY"}} <a href="{{@blog.url}}/"> Astronomer, Inc.</a> /
+           <a href="http://startupcincy.com/">#StartupCincy ♥</a> /
+           Cover photo by <a href="http://www.isaacgautschi.com/">Isaac Gautschi</a>
+         </section>
+     </div>
+</footer>
